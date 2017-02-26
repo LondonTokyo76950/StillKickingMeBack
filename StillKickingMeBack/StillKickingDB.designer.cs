@@ -135,7 +135,7 @@ namespace StillKickingMeBack
 			}
 		}
 		
-		public System.Data.Linq.Table<Medical_Condition> Medical_Conditions
+		public System.Data.Linq.Table<Medical_Condition> Event
 		{
 			get
 			{
