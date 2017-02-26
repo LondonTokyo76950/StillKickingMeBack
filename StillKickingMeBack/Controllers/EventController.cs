@@ -17,8 +17,8 @@ namespace StillKickingMeBack.Controllers
         public IEnumerable<Event> getEvent(int patientId)
         {
             var db = new StillKickingDBDataContext();
-            var events = db.Event.Where(p => p.Patient_IDFK == patientId);
-            return events;
+            var events = db.Events.Where(p => p.Patient_IDFK == patientId);
+            return events.ToList();
         }
 
         // POST: api/patient/example@example.com/event
@@ -28,11 +28,11 @@ namespace StillKickingMeBack.Controllers
         {
             JavaScriptSerializer js = new JavaScriptSerializer();
             var db = new StillKickingDBDataContext();
-            var a = new Event();
+            Event a = new Event();
             a.Description = events.Description;
             a.Event_Type_IDFK = events.Event_Type_IDFK;
             a.Patient_IDFK = patientId;
-            db.Event.InsertOnSubmit(a);
+            db.Events.InsertOnSubmit(a);
             db.SubmitChanges();
             return a;
         }
